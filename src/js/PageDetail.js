@@ -33,7 +33,7 @@ const PageDetail = (argument) => {
       articleDOM.querySelector("p.platforms span").innerHTML = parent_platforms.map(platform => `<a href="#search/${platform.platform.id}-platform" style="color:white">${platform.platform.name}</a>`);
       articleDOM.querySelector("p.publisher span").innerHTML = publishers.map(publisher => `<a href="#search/${publisher.id}-publisher" style="color:white">${publisher.name}</a>`);
       articleDOM.querySelector("p.genre span").innerHTML = genres.map(genre => `<a href="#search/${genre.id}-genre" style="color:white">${genre.name}</a>`);
-      articleDOM.querySelector("p.tags span").innerHTML = tags.map(tag => `<a href="#search/${tag.id}-tag" style="color:white">${tag.name}</a>`);
+      
       articleDOM.querySelector("p.store").innerHTML = stores.map(store => `<a href="https://www.${store.store.domain}" target="_blank" style="margin:0"><span style="color:white"><u style="text-decoration-color: rgb(212, 13, 53)">${store.store.name}</u> ${icons[store.store.id]? icons[store.store.id] : ""}</span></a><br>`);
       
       fetch(`https://api.rawg.io/api/games/${id}/movies?key=${process.env.API_KEY}`)
@@ -125,10 +125,10 @@ const PageDetail = (argument) => {
     <div style="position:absolute; z-index:1000; height:100%; width:200vw; background-color: rgb(212, 13, 53); transition: 1s ease-in; transform: translateX(-220vw)" id="transition"></div>
       <section class="page-detail">
        <div class="article">
-        <div class="background"><a id="website" href="" target="_blank">Check Website ></a></div>
+        <div class="background"><a id="website" href="" target="_blank"></a></div>
           <div class="row mt-3">
               <div class="col-lg-8 col-md-8 col-sm-12">
-                <h1 class="title"></h1>
+                <h1 class="title"></h1><br><br>
               </div>
               <div class="col-lg-4 col-md-4 col-sm-12">
                 <h2 class="rating"><span></span>/5 - <span class="vote"></span> votes</h2>
@@ -158,8 +158,7 @@ const PageDetail = (argument) => {
               </div>
           </div>
 
-          <h2 class="rating mt-3">BUY</h2>
-          <p class="store"></p>
+          
 
           <div id="video">
 
@@ -170,9 +169,7 @@ const PageDetail = (argument) => {
 
           </div>
 
-          <div id="similar">
-
-          </div>
+          
 
         </div>
       </section>

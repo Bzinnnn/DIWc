@@ -31,6 +31,7 @@ h1, h1 a {
 h2{
   @include whitecolor;
   font-weight: 600;
+  text-align: center
 }
 
 p, h5{
@@ -267,16 +268,7 @@ path, svg{
   position : relative
 }
 
-#website{
-  position:absolute;
-  right: 20px;
-  bottom : 20px;
-  display: inline-block;
-  background-color:$color-red;
-  color: $color-white;
-  padding:10px 25px;
-  border: none;
-}
+
 
 .pop{
   opacity: 0;

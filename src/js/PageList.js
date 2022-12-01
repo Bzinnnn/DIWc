@@ -165,7 +165,7 @@ document.querySelectorAll("option").forEach(element =>{
 
 /*DISPLAY BTN*/
       if (page < 3 && max > 9){
-        resultsContainer.insertAdjacentHTML("beforeend", `<div id="btncontent" class="col-12" style="position:relative; height:70px"><button id="buttonShow">Show More</button></div>`) ;
+        resultsContainer.insertAdjacentHTML("beforeend", `<div id="btncontent" class="col-12" style="position:relative; height:70px"><button id="buttonShow">Mostrar Mais</button></div>`) ;
         document.querySelector("button#buttonShow").addEventListener("click", () =>{
           a = 0;
           document.querySelector("div#btncontent").remove();
@@ -182,8 +182,8 @@ document.querySelectorAll("option").forEach(element =>{
         document.getElementById("searchinput").value = "";
         document.getElementById("whereyouare").style.display = "block";
         document.getElementById("présentation").style.display = "block";
-        document.getElementById("contenttitle").textContent = `Les jeux les plus attendus pour 2022 :`;
-        fetch(`https://api.rawg.io/api/games?key=${process.env.API_KEY}&page_size=9&page=${page}&dates=2022-05-06,2022-12-31&ordering=-added`)
+        document.getElementById("contenttitle").textContent = `Lista de Games (RAWG API) :`;
+        fetch(`https://api.rawg.io/api/games?key=691e26707a264372a8a259ab5d3d1f32&page_size=9&page=${page}&dates=2020-09-01,2020-09-30&platforms=18,1,7`)
             .then((response) => response.json())
             .then((responseData) => {
               max = responseData.count;
@@ -209,14 +209,6 @@ document.querySelectorAll("option").forEach(element =>{
             .then((response) => response.json())
             .then((responseData) => {
               document.getElementById("contenttitle").textContent = `Jeux du même studio :`;
-              max = responseData.count;
-              displayResults(responseData.results);
-          });
-        } else if (all.split("-")[1] === "publisher"){
-          fetch(`https://api.rawg.io/api/games?key=${process.env.API_KEY}&publishers=${argument}&page_size=9&page=${page}&dates=2015-12-01,2022-12-31&ordering=-released`)
-            .then((response) => response.json())
-            .then((responseData) => {
-              document.getElementById("contenttitle").textContent = `Jeux du même éditeur :`;
               max = responseData.count;
               displayResults(responseData.results);
           });
@@ -262,8 +254,7 @@ document.querySelectorAll("option").forEach(element =>{
   const render = () => {
     pageContent.innerHTML = `
       <section class="page-list">
-        <div class="articles row g-4 justify-content-around"><span class="center">Loading...</span></div>
-      </section>
+       
     `;
 
     preparePage();
